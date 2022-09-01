@@ -1,0 +1,297 @@
+/*linea de comentarios en SASS y CSS*/
+.padreIndex, .padreProductos, .padreContacto, .padreNosotros, .padreGaleria {
+  height: 100vh;
+  display: grid; }
+
+/* aplico reset*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+hr {
+  margin-left: 20px;
+  margin-right: 20px; }
+
+/* -----Estilos del Menu Hamburgesa-----*/
+div.col-12 {
+  background-color: #eff3d7; }
+
+nav.navbar {
+  background-color: #eff3d7; }
+
+/* -----Aplico Background a los body de cada html-----*/
+#bodyProductos, #bodyNosotros, #bodyContacto, #bodyGaleria, #bodyIndex {
+  background-color: #eff3d7; }
+
+/*Personalizacion del Menu de todos los html*/
+nav ul li {
+  background-color: #ffe2b4;
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+  padding: 10px;
+  border: double; }
+
+nav ul li:hover {
+  background-color: #c5c6c8; }
+
+/*-----Estilos aplicados en pagina "Index"-----*/
+.padreIndex {
+  grid-template-areas: "logoMenu logoMenu logoMenu" "frase frase frase" "lista lista lista" "tabla tabla tabla" "footer footer footer"; }
+  .padreIndex .indexMenu {
+    grid-area: logoMenu; }
+  .padreIndex .indexContenido-01 {
+    grid-area: frase;
+    /* Utilizo una Fuente personalizada de Google Fonts*/ }
+    .padreIndex .indexContenido-01 #h2Home {
+      display: block;
+      margin-top: 30px;
+      padding-bottom: 40px;
+      padding-left: 10px;
+      padding-right: 50px;
+      font-family: 'Edu VIC WA NT Beginner', cursive;
+      font-size: 30px;
+      color: brown;
+      line-height: 50px;
+      text-transform: capitalize; }
+  .padreIndex .indexContenido-02 {
+    grid-area: lista;
+    margin-bottom: 20px;
+    /* Cambio el estilo de las listas, muestro los items con cuadrados rellenos */ }
+    .padreIndex .indexContenido-02 .h3Home {
+      padding-bottom: 10px;
+      padding-top: 10px;
+      margin-bottom: 10px;
+      margin-left: 10px;
+      display: inline-block;
+      padding-left: 10px;
+      padding-right: 10px;
+      font-family: sans-serif; }
+    .padreIndex .indexContenido-02 .liCuadrado {
+      padding-left: 10px;
+      padding-bottom: 10px;
+      list-style-type: square; }
+  .padreIndex .indexContenido-03 {
+    grid-area: tabla;
+    margin-bottom: 20px; }
+  .padreIndex .indexContenido-04 {
+    grid-area: footer;
+    margin-bottom: 20px;
+    /* Cambio el estilo de la lista a circulo */ }
+    .padreIndex .indexContenido-04 #volverHome {
+      padding-top: 30px;
+      padding-bottom: 20px;
+      padding-left: 10px;
+      list-style-type: circle; }
+    .padreIndex .indexContenido-04 #footer {
+      font-size: 10px; }
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  margin-left: 10px; }
+
+td {
+  border: 1px solid black;
+  text-align: left;
+  padding: 8px; }
+
+/*-----Estilos aplicados en pagina "Productos"-----*/
+.padreProductos {
+  grid-template-areas: "logoMenu logoMenu logoMenu" "titulo1 titulo1 titulo1" "lista lista lista"; }
+  .padreProductos .productosMenu {
+    grid-area: logoMenu; }
+  .padreProductos .productosContenido-01 {
+    grid-area: titulo1; }
+  .padreProductos .productosContenido-02 {
+    grid-area: lista; }
+
+/* Aplico propiedad de Mapas*/
+.h1Productos {
+  margin: 20px;
+  padding: 5px;
+  font-family: "Edu VIC WA NT Beginner" cursive;
+  font-size: 20px;
+  color: brown; }
+
+/* Aplico estilos a la lista*/
+#ulProductos {
+  margin-left: 40px;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; }
+
+.li1Productos {
+  margin: 10px; }
+
+.li2Productos {
+  margin-left: 30px; }
+
+/*-----Estilos aplicados en pagina "Contacto"-----*/
+.padreContacto {
+  grid-template-areas: "logoMenu logoMenu logoMenu" "titulo titulo titulo" "form form form"; }
+  .padreContacto .contactoMenu {
+    grid-area: logoMenu; }
+  .padreContacto .contactoContenido-01 {
+    grid-area: titulo; }
+  .padreContacto .contactoContenido-02 {
+    grid-area: form; }
+
+#h1Contacto {
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  padding: 10px;
+  color: brown;
+  font-size: 25px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+  text-align: left;
+  border: 2px solid black; }
+
+#formContacto {
+  margin: 10px;
+  padding: 10px;
+  background-color: #b8e1ef; }
+  #formContacto fieldset {
+    margin: 10px;
+    border: 2px solid brown; }
+  #formContacto legend {
+    margin: 10px;
+    font-family: sans-serif;
+    font-weight: bold; }
+
+/*-----Estilos aplicados en pagina "Nosotros"-----*/
+.padreNosotros {
+  grid-template-areas: "logoMenu" "titulo" "frase" "about" "redes"; }
+  .padreNosotros .nosotrosMenu {
+    grid-area: logoMenu; }
+  .padreNosotros .nosotrosContenido-01 {
+    grid-area: titulo; }
+  .padreNosotros .nosotrosContenido-02 {
+    grid-area: frase; }
+  .padreNosotros .nosotrosContenido-03 {
+    grid-area: about; }
+  .padreNosotros .nosotrosContenido-04 {
+    grid-area: redes;
+    margin-left: 20px; }
+
+#h2Nosotros {
+  color: black;
+  font-weight: bold;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin: 20px;
+  font-size: 25px; }
+
+#h3Nosotros {
+  display: inline-block;
+  border: 2px solid brown;
+  font-style: italic;
+  background-color: #e7daba;
+  margin: 20px;
+  padding: 10px; }
+
+#h4Nosotros {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 20px;
+  margin-top: 20px; }
+
+.h4Nosotros {
+  margin: 20px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-items: center; }
+
+.instagram:hover {
+  transform: scale(1.5); }
+
+.facebook:hover {
+  transform: scale(1.5); }
+
+/*-----Estilos aplicados en pagina "Galeria"-----*/
+.padreGaleria {
+  grid-template-areas: "logoMenu logoMenu logoMenu" "titulo titulo titulo" "img01 img02 img03" "img04 img05 img06" "img07 img08 img09" "img10 img11 img12" "footer footer footer"; }
+  .padreGaleria .galeriaMenu {
+    grid-area: logoMenu; }
+  .padreGaleria .galeriaContenido-01 {
+    grid-area: titulo; }
+  .padreGaleria .hijo2Imagen {
+    grid-area: img01;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo3Imagen {
+    grid-area: img02;
+    margin: 20px;
+    border: 4px double brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo4Imagen {
+    grid-area: img03;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo5Imagen {
+    grid-area: img04;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo6Imagen {
+    grid-area: img05;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo7Imagen {
+    grid-area: img06;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo8Imagen {
+    grid-area: img07;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo9Imagen {
+    grid-area: img08;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo10Imagen {
+    grid-area: img09;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo11Imagen {
+    grid-area: img10;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo12Imagen {
+    grid-area: img11;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo13Imagen {
+    grid-area: img12;
+    margin: 20px;
+    border: 4px solid brown;
+    outline: 2px solid black; }
+  .padreGaleria .hijo14footer {
+    grid-area: footer;
+    margin: 40px;
+    padding: 20px; }
+  .padreGaleria img {
+    max-height: 100%;
+    max-width: 100%; }
+
+/* MediaQueries */
+@media screen and (max-width: 600px) {
+  /*-----------Galeria.html-----------*/
+  .padreGaleria {
+    height: 100vh;
+    display: grid;
+    grid-template-areas: "logoMenu logoMenu"  "titulo titulo" "img01 img02" "img03 img04" "img05 img06" "img07 img08" "img09 img10" "img11 img12" "footer footer"; }
+  /*-----------Nosotros.html-----------*/
+  #h3Nosotros {
+    margin: 10px;
+    font-size: 15px; } }

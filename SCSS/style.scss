@@ -1,0 +1,432 @@
+//linea de comentario
+/*linea de comentarios en SASS y CSS*/
+
+@import "utilities/variables";
+@import "utilities/mapas";
+@import "utilities/listas";
+@import "utilities/mixin";
+@import "utilities/extend";
+@import "utilities/condicionales";
+
+
+/* aplico reset*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+hr {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+/* -----Estilos del Menu Hamburgesa-----*/
+div.col-12 {
+    background-color: $color-body;
+}
+nav.navbar {
+    background-color: $color-body;
+}
+
+/* -----Aplico Background a los body de cada html-----*/
+
+#bodyProductos, #bodyNosotros, #bodyContacto, #bodyGaleria, #bodyIndex{background-color: $color-body;}
+
+/*Personalizacion del Menu de todos los html*/ 
+nav{
+    ul{
+        li{
+        background-color: nth($colores, 2);
+        display: inline-block;
+        margin-left: 10px;
+        margin-right: 10px;
+        padding: 10px;
+        border:double;}
+        li:hover{
+            background-color: $color-hover;
+        }
+    }
+}
+
+/*-----Estilos aplicados en pagina "Index"-----*/
+
+.padreIndex{
+    @extend %grid;
+    grid-template-areas: 
+    "logoMenu logoMenu logoMenu"
+    "frase frase frase"
+    "lista lista lista"
+    "tabla tabla tabla"
+    "footer footer footer"
+    ;
+    .indexMenu{
+        grid-area: logoMenu;
+    }
+    .indexContenido-01{
+        grid-area: frase;
+        /* Utilizo una Fuente personalizada de Google Fonts*/
+        #h2Home{
+            display: block;
+            margin-top: 30px;
+            padding-bottom: 40px;
+            padding-left: 10px;
+            padding-right: 50px;
+            font-family: 'Edu VIC WA NT Beginner', cursive;
+            font-size: 30px;
+            color: $color-texto-primario;
+            line-height: 50px;
+            text-transform: capitalize;
+        }
+    }
+    .indexContenido-02{
+        grid-area: lista;
+        margin-bottom: 20px;
+        // Uso Mixin 
+        .h3Home{
+            @include box-model
+        }
+        /* Cambio el estilo de las listas, muestro los items con cuadrados rellenos */
+        .liCuadrado {
+            @include medidas (10px, 10px);
+            list-style-type: square;
+        }
+
+    }
+    .indexContenido-03{
+        grid-area: tabla;
+        margin-bottom: 20px;
+    }
+    .indexContenido-04{
+        grid-area: footer;
+        margin-bottom: 20px;
+        /* Cambio el estilo de la lista a circulo */
+        #volverHome {
+            padding-top: 30px;
+            padding-bottom: 20px;
+            padding-left: 10px;
+            list-style-type: circle;
+        }
+        #footer{
+            font-size: 10px;
+        }
+    }
+}
+
+table{
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    margin-left: 10px;
+}
+td{
+    border: 1px solid rgb(0, 0, 0);
+    text-align: left;
+    padding: 8px;
+}
+
+/*-----Estilos aplicados en pagina "Productos"-----*/
+
+.padreProductos{
+    @extend %grid;
+    grid-template-areas: 
+        "logoMenu logoMenu logoMenu"
+        "titulo1 titulo1 titulo1"
+        "lista lista lista"
+    ;
+    .productosMenu{
+        grid-area: logoMenu;
+    }
+    .productosContenido-01{
+        grid-area: titulo1;
+    }
+    
+    .productosContenido-02{
+        grid-area: lista;
+    }
+}
+
+/* Aplico propiedad de Mapas*/
+
+.h1Productos{
+    margin: map-get($map: $title, $key: margin-title);
+    padding: map-get($map: $title, $key: padding-title);
+    font-family: map-get($map: $title, $key:font-family-title);
+    font-size: map-get($map: $title, $key: font-size-title);
+    color: map-get($map: $title, $key: color-title);
+}
+
+/* Aplico estilos a la lista*/
+#ulProductos{
+    margin-left: 40px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.li1Productos{
+    margin: 10px;
+}
+.li2Productos{
+    margin-left: 30px;
+}
+
+/*-----Estilos aplicados en pagina "Contacto"-----*/
+
+.padreContacto{
+    @extend %grid;
+    grid-template-areas: 
+    "logoMenu logoMenu logoMenu"
+    "titulo titulo titulo"
+    "form form form"
+    ;
+    .contactoMenu{
+        grid-area: logoMenu;
+    }
+    
+    .contactoContenido-01{
+        grid-area: titulo;
+    }
+    
+    .contactoContenido-02{
+        grid-area: form;
+    }
+}
+
+ #h1Contacto{
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    padding: 10px;
+    color: $color-texto-primario;
+    font-size: 25px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    text-align: left;
+    border: 2px solid rgb(0, 0, 0);
+ }
+// uso listas
+ #formContacto{
+    margin: 10px;
+    padding: 10px;
+    background-color: nth($colores, 3);
+    fieldset{
+        margin: 10px;
+        border: 2px solid $color-texto-primario;
+    }
+    legend{
+        margin: 10px;
+        font-family: sans-serif;
+        font-weight: bold;
+    }
+}
+
+/*-----Estilos aplicados en pagina "Nosotros"-----*/
+
+.padreNosotros{
+    @extend %grid;
+    grid-template-areas: 
+    "logoMenu"
+    "titulo"
+    "frase"
+    "about"
+    "redes"
+    ;
+    .nosotrosMenu{
+        grid-area: logoMenu;
+    }
+    .nosotrosContenido-01{
+        grid-area: titulo;
+    } 
+    .nosotrosContenido-02{
+        grid-area: frase;
+    }
+    .nosotrosContenido-03{
+        grid-area: about;
+    }
+    .nosotrosContenido-04{
+        grid-area: redes;
+        margin-left: 20px;
+    }
+}
+
+#h2Nosotros{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 20px;
+    font-size: 25px;
+}
+
+#h3Nosotros{
+    display: inline-block;
+    border: 2px solid $color-texto-primario;
+    font-style: italic;
+    @include condicion (#e7daba);
+}
+
+#h4Nosotros{
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.h4Nosotros{
+    margin: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+.instagram:hover{
+    transform: scale(1.5);
+}
+
+.facebook:hover{
+    transform: scale(1.5);
+}
+
+/*-----Estilos aplicados en pagina "Galeria"-----*/
+
+.padreGaleria{
+    @extend %grid;
+    grid-template-areas:
+    "logoMenu logoMenu logoMenu"
+    "titulo titulo titulo"
+    "img01 img02 img03"
+    "img04 img05 img06"
+    "img07 img08 img09"
+    "img10 img11 img12"
+    "footer footer footer"
+    ;
+    .galeriaMenu{
+        grid-area: logoMenu;
+    }
+    
+    .galeriaContenido-01{
+        grid-area: titulo;
+    }
+    .hijo2Imagen{
+        grid-area: img01;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo3Imagen{
+        grid-area: img02;
+        margin: 20px;
+        border: 4px double $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo4Imagen{
+        grid-area: img03;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo5Imagen{
+        grid-area: img04;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo6Imagen{
+        grid-area: img05;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo7Imagen{
+        grid-area: img06;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo8Imagen{
+        grid-area: img07;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo9Imagen{
+        grid-area: img08;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo10Imagen{
+        grid-area: img09;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo11Imagen{
+        grid-area: img10;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo12Imagen{
+        grid-area: img11;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo13Imagen{
+        grid-area: img12;
+        margin: 20px;
+        border: 4px solid $color-texto-primario;
+        outline: 2px solid black;
+    }
+    .hijo14footer{
+        grid-area: footer;
+        margin: 40px;
+        padding: 20px;
+    }
+    img{
+        max-height: 100%;
+        max-width: 100%;
+    }
+}
+
+/* MediaQueries */
+
+@media screen and (max-width: 600px){
+
+    /*-----------Galeria.html-----------*/
+
+    .padreGaleria{
+        height: 100vh;
+        display: grid;
+        grid-template-areas:
+        "logoMenu logoMenu" 
+        "titulo titulo"
+        "img01 img02"
+        "img03 img04"
+        "img05 img06"
+        "img07 img08"
+        "img09 img10"
+        "img11 img12"
+        "footer footer"
+        ;
+    }    
+
+     /*-----------Nosotros.html-----------*/
+     #h3Nosotros{
+        margin: 10px;
+        font-size: 15px;
+    }
+
+}
+
+ 
+
+
+
+
+
+
+
+
+
+
+
